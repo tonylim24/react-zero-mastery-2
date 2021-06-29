@@ -52,8 +52,20 @@ class Directory extends Component {
         ))}
         
         */}
-        {this.state.sections.map(({ title, imageUrl, id, size }) => (
-          <MenuItem key={id} title={title} imageUrl={imageUrl} size={size} />
+        {/* {this.state.sections.map(({ title, imageUrl, id, size, linkUrl }) => (
+          <MenuItem
+            key={id}
+            title={title}
+            imageUrl={imageUrl}
+            size={size}
+            linkUrl={linkUrl}
+          />
+        ))} */}
+        {/* Notice we can rewrite the code above since a lot of the props name and passed data
+        have the same variable name (only id is different). We can use the spread operator such as:
+        */}
+        {this.state.sections.map(({ id, ...otherSectionProps }) => (
+          <MenuItem key={id} {...otherSectionProps} />
         ))}
       </div>
     );
