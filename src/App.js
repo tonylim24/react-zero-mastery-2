@@ -3,6 +3,7 @@ import Homepage from "./pages/Homepage/Homepage";
 import Shop from "./pages/shop/shop";
 import { Route, Switch } from "react-router-dom";
 import Header from "./components/header/header";
+import SignInAndSignUpPage from "./pages/sign-in-and-sign-up/sign-in-and-sign-up";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Switch>
         <Route exact path="/" component={Homepage} />
         <Route exact path="/shop" component={Shop} />
+        <Route exact path="/signin" component={SignInAndSignUpPage} />
       </Switch>
     </div>
   );
