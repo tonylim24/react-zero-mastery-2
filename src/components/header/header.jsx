@@ -3,8 +3,9 @@ import { Link } from "react-router-dom";
 import "./header.scss";
 // When importing an svg, always import as ReactComponent so that it renders.
 import { ReactComponent as Logo } from "../../assets/crown.svg";
+import { auth } from "../../firebase/firebase.utils";
 
-const Header = () => {
+const Header = ({ currentUser }) => {
   return (
     <div className="header">
       {/* We can create navigation using react-router-dom's Link */}
@@ -18,6 +19,17 @@ const Header = () => {
         <Link className="option" to="/shop">
           CONTACT
         </Link>
+        {currentUser ? (
+          // Signout
+          <div className="option" onClick={() => auth.signOut()}>
+            {currentUser.displayName.toUpperCase()}(SIGN OUT)
+          </div>
+        ) : (
+          // Link to Login Page
+          <Link className="option" to="/signin">
+            LOGIN
+          </Link>
+        )}
       </div>
     </div>
   );
