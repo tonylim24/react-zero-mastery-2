@@ -6,8 +6,9 @@ import { ReactComponent as Logo } from "../../assets/crown.svg";
 import { auth } from "../../firebase/firebase.utils";
 import { connect } from "react-redux";
 import CartIcon from "../cart-icon/cart-icon";
+import CartDropdown from "../cart-dropdown/cart-dropdown";
 
-const Header = ({ currentUser }) => {
+const Header = ({ currentUser, hidden }) => {
   return (
     <div className="header">
       {/* We can create navigation using react-router-dom's Link */}
@@ -34,14 +35,17 @@ const Header = ({ currentUser }) => {
         )}
         <CartIcon />
       </div>
+      {/* <CartDropdown /> */}
+      {hidden ? null : <CartDropdown />}
     </div>
   );
 };
 
 // Connecting to root reducer.
 // state variable here is the root reducer
-const mapStateToProps = (state) => ({
-  currentUser: state.user.currentUser,
+const mapStateToProps = ({ user: { currentUser }, cart: { hidden } }) => ({
+  currentUser: currentUser,
+  hidden: hidden,
 });
 
 export default connect(mapStateToProps)(Header);
