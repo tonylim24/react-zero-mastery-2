@@ -1,3 +1,5 @@
+import { UserActionTypes } from "./user.types";
+
 const INITIAL_STATE = {
   currentUser: null,
 };
@@ -6,7 +8,7 @@ const INITIAL_STATE = {
 // This is ES6 syntax. Note: null is a value.
 const userReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case "SET_CURRENT_USER":
+    case UserActionTypes.SET_CURRENT_USER:
       return {
         // Always spread out the state, before setting the state with a payload.
         // This ensures re-rendering, since we are passing object.

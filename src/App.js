@@ -80,6 +80,8 @@ class App extends Component {
   }
 }
 
+// Grabs currentUser props from user variable.
+// Note that we can do this because on index.js we have set the store so it knows where to get and store state.
 const mapStateToProps = ({ user }) => ({
   currentUser: user.currentUser,
 });

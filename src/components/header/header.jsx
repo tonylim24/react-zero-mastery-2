@@ -23,7 +23,7 @@ const Header = ({ currentUser }) => {
         {currentUser ? (
           // Signout
           <div className="option" onClick={() => auth.signOut()}>
-            {currentUser.currentUser.displayName.toUpperCase()}(SIGN OUT)
+            SIGN OUT
           </div>
         ) : (
           // Link to Login Page
